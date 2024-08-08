@@ -25,7 +25,7 @@ export default function Home() {
   }
 
   const addItem = async (item) => {
-    const docRef = doc(collection(firestore, 'inventory'), item)
+    const docRef = doc(collection(firestore, 'inventory'), item.toLowerCase())
     const docSnap = await getDoc(docRef)
 
     if (docSnap.exists()) {
@@ -39,7 +39,7 @@ export default function Home() {
   }
 
   const removeItem = async (item) => {
-    const docRef = doc(collection(firestore, 'inventory'), item)
+    const docRef = doc(collection(firestore, 'inventory'), item.toLowerCase())
     const docSnap = await getDoc(docRef)
 
     if (docSnap.exists()) {
